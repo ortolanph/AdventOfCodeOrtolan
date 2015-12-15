@@ -6,10 +6,9 @@ public class ElvishWrappingPaper {
     public int totalWrap(List<String> surrogatePrisms) {
         List<Prism> prisms = surrogatePrisms
                 .stream()
-                .forEach(s -> new Prism(s));
+                .forEach(s -> Prism s);
 
-        return prisms.stream().forEach(p -> (p.area() + p.slack()));
-        return 0;
+        return prisms.stream().forEach(prism -> {prism.area() + prism.slack()});
     }
 
     public static void main(String[] args) {
