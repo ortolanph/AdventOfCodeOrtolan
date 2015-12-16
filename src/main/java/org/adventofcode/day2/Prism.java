@@ -44,7 +44,27 @@ public class Prism {
         return height * width;
     }
 
+    private int llww() {
+        return length + length + width + width;
+    }
+
+    private int llhh() {
+        return length + length + height + height;
+    }
+
+    private int hhww() {
+        return height + height + width + width;
+    }
+
     public int slack() {
         return Math.min(lxw(), Math.min(lxh(), hxw()));
+    }
+
+    public int volume() {
+        return length * width * height;
+    }
+
+    public int smallestPerimeter() {
+        return Math.min(llww(), Math.min(llhh(), hhww()));
     }
 }

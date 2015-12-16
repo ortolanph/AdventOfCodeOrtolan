@@ -58,4 +58,37 @@ public class ElvishWrappingPaperTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testRibbonPrism1() throws Exception {
+        List<String> prisms = Arrays.asList(PRISM_1);
+
+        int expected = 34;
+
+        int actual = elvishWrappingPaper.totalRibbon(prisms);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testRibbonPrism2() throws Exception {
+        List<String> prisms = Arrays.asList(PRISM_2);
+
+        int expected = 14;
+
+        int actual = elvishWrappingPaper.totalRibbon(prisms);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testRibbonPrismTotal() throws Exception {
+        List<String> prisms = Arrays.asList(PRISM_1, PRISM_2);
+
+        int expected = 48;
+
+        int actual = elvishWrappingPaper.totalRibbon(prisms);
+
+        assertEquals(expected, actual);
+    }
 }

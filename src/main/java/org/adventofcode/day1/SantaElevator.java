@@ -46,12 +46,19 @@ public class SantaElevator {
         elevator.addFloorObserver(floorObserver);
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("day01input.txt"));
+            BufferedReader reader = new BufferedReader(
+                    new FileReader(
+                            System.getProperty("user.home") +
+                                    System.getProperty("file.separator") +
+                                    "adventofcode" +
+                                    System.getProperty("file.separator") +
+                                    "day01input.txt"));
 
             String input = reader.readLine();
+            reader.close();
 
-            System.out.println(elevator.go(input));
-            System.out.println(floorObserver.getFirstBasementFirstPosition());
+            System.out.printf("Santa is actually on floor %d.\n", elevator.go(input));
+            System.out.printf("Santa reached by the first time the first basement at step %d.\n", floorObserver.getFirstBasementFirstPosition());
         } catch (IOException e) {
             e.printStackTrace();
         }
