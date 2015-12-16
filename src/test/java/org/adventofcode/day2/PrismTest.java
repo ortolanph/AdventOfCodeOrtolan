@@ -13,7 +13,7 @@ public class PrismTest {
 
     @Before
     public void setUp() throws Exception {
-        prism = new Prism("2x3x4");
+
     }
 
     @After

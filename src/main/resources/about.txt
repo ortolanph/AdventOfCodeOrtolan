@@ -1,0 +1,7 @@
+Some people say I'm slow.
+Yeah!
+I'm doing these using TDD to be sure that code will work properly.
+I'm writing code in Java.
+Some people will say: "Yuck, Java suck!"
+I say: "Well that's what I do!"
+Enjoy!
