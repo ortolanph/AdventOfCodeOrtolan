@@ -27,7 +27,15 @@ public class SphericalHousesTest {
     public void testDirectionSet1() throws Exception {
         long expected = 2;
 
-        long actual = sphericalHouses.countSphericalHousesVisitedOnce(DIRECTION_SET_1);
+        char[] directions = DIRECTION_SET_1.toCharArray();
+
+        for(char direction : directions) {
+            sphericalHouses.deliverPresentTo(direction);
+        }
+
+        long actual = sphericalHouses.countSphericalHousesVisitedOnce();
+        System.out.println("\" style=\"fill:none;stroke:black\" />");
+        System.out.println("\n-----------------");
 
         assertEquals(expected, actual);
     }
@@ -36,7 +44,15 @@ public class SphericalHousesTest {
     public void testDirectionSet2() throws Exception {
         long expected = 3;
 
-        long actual = sphericalHouses.countSphericalHousesVisitedOnce(DIRECTION_SET_2);
+        char[] directions = DIRECTION_SET_2.toCharArray();
+
+        for(char direction : directions) {
+            sphericalHouses.deliverPresentTo(direction);
+        }
+
+        long actual = sphericalHouses.countSphericalHousesVisitedOnce();
+        System.out.println("\" style=\"fill:none;stroke:black\" />");
+        System.out.println("\n-----------------");
 
         assertEquals(expected, actual);
     }
@@ -45,7 +61,15 @@ public class SphericalHousesTest {
     public void shouldNotVisiteOnceNoHouse() throws Exception {
         long expected = 0;
 
-        long actual = sphericalHouses.countSphericalHousesVisitedOnce(DIRECTION_SET_3);
+        char[] directions = DIRECTION_SET_3.toCharArray();
+
+        for(char direction : directions) {
+            sphericalHouses.deliverPresentTo(direction);
+        }
+
+        long actual = sphericalHouses.countSphericalHousesVisitedOnce();
+        System.out.println("\" style=\"fill:none;stroke:black\" />");
+        System.out.println("\n-----------------");
 
         assertEquals(expected, actual);
     }

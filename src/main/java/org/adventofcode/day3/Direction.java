@@ -23,6 +23,6 @@ public enum Direction {
             }
         }
 
-        throw new IllegalArgumentException(String.format("There is no symbol %s", symbol));
+        throw new IllegalArgumentException(String.format("There is no symbol: [%s]", symbol));
     }
 }

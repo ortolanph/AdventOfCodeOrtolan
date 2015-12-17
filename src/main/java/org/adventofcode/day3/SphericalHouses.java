@@ -1,55 +1,65 @@
 package org.adventofcode.day3;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class SphericalHouses {
 
-    private Map<Integer, Integer> deliveryMap = new HashMap<>();
+    private Set<Integer> visitedHouses = new LinkedHashSet<>();
+    private Set<Integer> alreadyVisitedHouses = new LinkedHashSet<>();
     private int x = 0;
     private int y = 0;
+    private int houses = 0;
 
     private static final Integer FACTOR = 10000;
 
-    public long countSphericalHousesVisitedOnce(String directions) {
-        deliverPresents(directions.toCharArray());
-        System.out.println(deliveryMap.toString());
-        return deliveryMap.entrySet().stream().filter(v -> v.getValue() == 1).count();
+    public SphericalHouses() {
+        visit(x, y);
+        houses++;
+        System.out.printf("<polyline points=\"%d,%d ", 1000, 1000);
     }
 
-    private void deliverPresents(char[] path) {
-        visit(x, y);
+    public long countSphericalHousesVisitedOnce() {
+        return visitedHouses.stream().count() - alreadyVisitedHouses.stream().count();
+    }
 
-        for(char step : path) {
+    public void deliverPresentTo(char step) {
+        if (step != '\n') {
             Direction direction = Direction.fromSymbol(step);
 
             switch (direction) {
                 case NORTH:
-                    y = y + 1;
+                    y++;
                     break;
                 case EAST:
-                    x = x + 1;
+                    x++;
                     break;
                 case SOUTH:
-                    y = y - 1;
+                    y--;
                     break;
                 case WEST:
-                    x = x - 1;
+                    x--;
             }
+
+            if(houses % 50 == 0) {
+                System.out.println("\" style=\"fill:none;stroke:black\" />");
+                System.out.print("<polyline points=\"");
+            }
+            System.out.printf("%d,%d ", (x*10) + 1000, (y*10) + 1000);
 
             visit(x, y);
         }
     }
 
     private void visit(int x, int y) {
-        Integer visits = deliveryMap.get(hash(x, y));
+        Integer visitedHouse = hash(x, y);
 
-        if(Objects.isNull(visits)) {
-            deliveryMap.put(hash(x,y), 1);
+        if(visitedHouses.contains(visitedHouse)) {
+            alreadyVisitedHouses.add(visitedHouse);
         } else {
-            deliveryMap.put(hash(x,y), visits + 1);
+            visitedHouses.add(visitedHouse);
         }
+
+        houses ++;
     }
 
     private Integer hash(int x, int y) {
