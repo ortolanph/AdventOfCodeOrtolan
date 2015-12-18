@@ -25,11 +25,11 @@ public class VacuumDelivery {
 
             stream.close();
 
-            System.out.println("\" style=\"fill:none;stroke:black\" />");
-
             long housesVisitedOnce = sphericalHouses.countSphericalHousesVisitedOnce();
 
-            System.out.printf("Houses visited once: %d\n", housesVisitedOnce);
+            System.out.printf("Total houses visited: %d\n", sphericalHouses.countVisitedHouses());
+            System.out.printf("Houses visited once: %d\n", sphericalHouses.countSphericalHousesVisitedOnce());
+            System.out.printf("More than once visited houses: %d\n", sphericalHouses.countVisitedHousesMoreThanOnce());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
