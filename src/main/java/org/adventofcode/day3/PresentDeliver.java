@@ -7,9 +7,6 @@ public class PresentDeliver {
     private int y = 0;
     private int x = 0;
 
-    public PresentDeliver() {
-    }
-
     public void moveTo(char step) {
         Direction direction = Direction.fromSymbol(step);
         Coordinate coordinate = parseCoordinate(direction);
